@@ -1,11 +1,24 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  ssr:false,
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
   runtimeConfig: {
     public: {
-      email: process.env.USER_EMAIL,
-      password: process.env.USER_PASSWORD,
+      users: process.env.USERS,
+    },
+  },
+  css: ['@/assets/css/tailwind.css'],
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  },
+  vue: {
+    //This tells Vue that lion-input and lion-button are custom elements and should not be treated as Vue components
+    compilerOptions: {
+      isCustomElement: (tag) => ['lion-input', 'lion-button'].includes(tag),
     },
   },
 })

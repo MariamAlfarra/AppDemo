@@ -5,6 +5,7 @@ definePageMeta({
 
 const logout = () => {
   localStorage.setItem('loggedIn', 'false');
+  localStorage.setItem('user_id', '')
   window.location.href = '/login';
 };
 

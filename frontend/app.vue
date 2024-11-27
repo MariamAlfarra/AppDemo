@@ -1,7 +1,8 @@
+
 <template>
   <div>
-    <div>
-      <NuxtPage />
-    </div>
+    <ClientOnly>
+        <NuxtPage />
+    </ClientOnly>
   </div>
 </template>
