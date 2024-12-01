@@ -3,8 +3,12 @@
         "id":"1",
         "email":"mariam_alfarra@hotmail.com", 
         "password":"1234567", 
-        "name":"Mariam",
-        "role":"admin"
+        "firstName":"Mariam Andreea",
+        "lastName":"Al-Farra",
+        "role":"Frontend Developer",
+        "phone":"+40760122614",
+        "location":"Bucharest, Romania",
+        "description":"Hello ! As a dedicated Web Developer with 3 years  and half of experience, I am passionate about building efficient, scalable, and user-friendly web applications. A proud graduate of the University of Politehnica Bucharest in Electronics, Telecommunication, and IT Engineering, I've been contributing my skills and knowledge to the tech industry since my graduation."
     },
     {   "id":"2",
         "email":"user1@example.com",
