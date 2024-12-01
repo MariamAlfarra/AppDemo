@@ -3,8 +3,58 @@
         "id":"1",
         "email":"mariam_alfarra@hotmail.com", 
         "password":"1234567", 
-        "name":"Mariam",
-        "role":"admin"
+        "firstName":"Mariam Andreea",
+        "lastName":"Al-Farra",
+        "role":"Frontend Developer",
+        "phone":"+40760122614",
+        "location":"Bucharest, Romania",
+        "description":"Hello ! As a dedicated Web Developer with 3 years  and half of experience, I am passionate about building efficient, scalable, and user-friendly web applications. A proud graduate of the University of Politehnica Bucharest in Electronics, Telecommunication, and IT Engineering, I've been contributing my skills and knowledge to the tech industry since my graduation.",
+        "homeCards": [
+            {
+                "title": "Web Development",
+                "description": "Building responsive and high-performance websites.",
+                "icon":"i-heroicons-code-bracket"
+            },
+            {
+                "title": "App Development",
+                "description": "Creating seamless mobile experiences for various platforms.",
+                "icon":"i-heroicons-code-bracket-square"
+            },
+            {
+                "title": "API Design",
+                "description": "Designing and implementing RESTful APIs for efficient data handling.",
+                "icon":"i-heroicons-device-tablet"
+            },
+            {
+                "title": "Technologies",
+                "description": "Expertise in modern web frameworks, libraries, and tools.",
+                "icon":"i-heroicons-cog-8-tooth"
+            }
+        ],
+        "workCard": [
+            {
+                "title": "Web Development",
+                "description": "Building responsive and high-performance websites."
+            },
+            {
+                "title": "App Development",
+                "description": "Creating seamless mobile experiences for various platforms."
+            },
+            {
+                "title": "API Design",
+                "description": "Designing and implementing RESTful APIs for efficient data handling."
+            },
+            {
+                "title": "Technologies",
+                "description": "Expertise in modern web frameworks, libraries, and tools."
+            }
+        ],
+        "reviewCard": [
+            "/images/image1.png",
+            "/images/image2.png",
+            "/images/image3.png",
+            "/images/image4.png"
+        ]
     },
     {   "id":"2",
         "email":"user1@example.com",

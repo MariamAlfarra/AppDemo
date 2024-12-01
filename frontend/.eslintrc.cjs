@@ -1,14 +1,14 @@
 module.exports = {
     root: true,
     extends: [
-        'eslint:recommended',
-        'plugin:vuejs-accessibility/recommended',
-        '@nuxt/eslint-config',
-        'plugin:vue/vue3-recommended',
-        'plugin:tailwindcss/recommended'
+        "eslint:recommended",
+        "plugin:vuejs-accessibility/recommended",
+        "@nuxt/eslint-config",
+        "plugin:vue/vue3-recommended",
+        "plugin:tailwindcss/recommended"
     ],
     plugins: ["vuejs-accessibility"],
-    ignorePatterns: ['.nuxt/', 'node_modules/'],
+    ignorePatterns: [".nuxt/", "node_modules/"],
     rules: {
         "comma-dangle": ["error", "never"],
         indent: ["error", 4],
