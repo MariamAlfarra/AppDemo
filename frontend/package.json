@@ -10,6 +10,7 @@
     "predev": "eslint --fix ."
   },
   "dependencies": {
+    "@heroicons/vue": "^2.2.0",
     "@lion/ui": "^0.8.7",
     "@pinia/nuxt": "^0.7.0",
     "nuxt": "^3.14.1592",

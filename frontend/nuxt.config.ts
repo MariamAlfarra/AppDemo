@@ -5,6 +5,7 @@ export default defineNuxtConfig({
     compatibilityDate: "2024-11-01",
     devtools: { enabled: true },
     modules: ["@pinia/nuxt"],
+    plugins: ["~/plugins/icon-resolver.ts"],
     runtimeConfig: {
         public: {
             users: process.env.USERS
@@ -20,7 +21,7 @@ export default defineNuxtConfig({
     vue: {
     //This tells Vue that lion-input and lion-button are custom elements and should not be treated as Vue components
         compilerOptions: {
-            isCustomElement: (tag) => ["lion-input", "lion-button"].includes(tag)
+            isCustomElement: (tag) => ["lion-input-email", "lion-input", "lion-icon", "lion-button"].includes(tag)
         }
     }
 });
