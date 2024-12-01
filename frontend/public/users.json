@@ -1,0 +1,21 @@
+[
+    {
+        "id":"1",
+        "email":"mariam_alfarra@hotmail.com", 
+        "password":"1234567", 
+        "name":"Mariam",
+        "role":"admin"
+    },
+    {   "id":"2",
+        "email":"user1@example.com",
+        "password":"password123",
+        "name":"John Doe",
+        "role":"admin"
+    },
+    {   "id":"3",
+        "email":"user2@example.com",
+        "password":"mypassword45",
+        "name":"Jane Smith",
+        "role":"user"
+    }
+]
