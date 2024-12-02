@@ -2,7 +2,7 @@
 import { useMainStore } from "~/stores/main";
 const mainStore = useMainStore();
 const {user} = toRefs(mainStore);
-const items = computed(() => user.value.reviewCard);
+const items = computed(() => user.value?.reviewCard);
 </script>
 <template>
     <div class="carousel-container">

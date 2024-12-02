@@ -25,19 +25,17 @@ export const useMainStore = defineStore("main", {
         },
 
         logout(router: string[]) {
-            this.isAuthenticated = false;
             router.push("/login");
+            this.isAuthenticated = false;
             this.user = null;
             localStorage.removeItem("auth");
             this.isModalVisible=false;
+            this.activeTab = 0;
             
         },
 
         checkAuth() {
             const auth = localStorage.getItem("auth");
-            console.log("Initial isAuthenticated:", this.isAuthenticated); 
-            console.log(auth);
-          
             try {
                 if (auth) {
                     const user_id = JSON.parse(auth);
@@ -45,10 +43,8 @@ export const useMainStore = defineStore("main", {
                         (u) => u.id === user_id
                     );
                     if (user) { 
-                        console.log(user.id);
                         this.isAuthenticated = true;
                         this.user = user;
-                        console.log("Updated isAuthenticated:", this.isAuthenticated);
                     }
                 }
             } catch (error) { 
@@ -59,7 +55,6 @@ export const useMainStore = defineStore("main", {
         },
         setActiveTab(index: number) {
             this.activeTab = index;
-            console.log(this.activeTab);
         }
     }
 });

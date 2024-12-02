@@ -15,8 +15,8 @@ const tabs = ref([
 
 </script>
 <template>
-    <div class="flex h-screen w-screen flex-col items-center justify-center bg-gradient-to-r from-violet-500 to-fuchsia-500 p-6">
-        <div class="flex w-full max-w-5xl space-x-6">
+    <div class="flex h-screen w-screen flex-col items-center justify-center bg-gradient-to-r from-pink-400/80 to-orange-400/80  p-6">
+        <div class="flex w-full space-x-6">
             <left-card></left-card>
             <div class="flex flex-1 flex-col space-y-4">
                 <app-tabs v-model="activeTab" :tabs="tabs"></app-tabs>
