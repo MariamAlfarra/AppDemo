@@ -6,7 +6,9 @@ export const useMainStore = defineStore("main", {
     state: ()=> ({
         isAuthenticated:false,
         user: null as User | null,
-        userData: []
+        userData: [],
+        activeTab: 0,
+        isModalVisible: false
     }),
     actions: {
         login(email: string, password: string) {
@@ -16,7 +18,7 @@ export const useMainStore = defineStore("main", {
             if (user) {
                 this.isAuthenticated = true;
                 this.user = user;
-                localStorage.setItem("auth", JSON.stringify(this.user.id));
+                localStorage.setItem("auth", JSON.stringify(this.user?.id));
                 return true;
             }
             return false;
@@ -27,6 +29,7 @@ export const useMainStore = defineStore("main", {
             router.push("/login");
             this.user = null;
             localStorage.removeItem("auth");
+            this.isModalVisible=false;
             
         },
 
@@ -53,6 +56,10 @@ export const useMainStore = defineStore("main", {
                 this.user = null;
                 localStorage.removeItem("auth");
             }
+        },
+        setActiveTab(index: number) {
+            this.activeTab = index;
+            console.log(this.activeTab);
         }
     }
 });

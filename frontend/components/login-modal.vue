@@ -5,9 +5,7 @@ const email = ref("");
 const password = ref("");
 const mainStore = useMainStore();
 const router = useRouter();
-const resolvedIcon = ref(null);
 const errorMessage = ref("");
-import { resolveLionIcon } from "#build/imports";
 
 const emailValidators = [
     new Required(null, {
@@ -26,48 +24,59 @@ const handleLogin = () => {
     }
 };
 
-onMounted(() => {
-    const icon = resolveLionIcon("user");
-    resolvedIcon.value = icon.strings.join("");
-    console.log(resolvedIcon.value);
-});
+const isPasswordVisible = ref(false);
 
+const togglePasswordVisibility = () => {
+    isPasswordVisible.value = !isPasswordVisible.value;
+};
 </script>
 <template>
     <div class="flex h-screen w-screen items-center justify-center bg-gradient-to-r from-violet-500 to-fuchsia-500">
-        <div class="size-96 rounded-lg bg-transparent/30 p-8 shadow-lg">
-            <h1 class="mb-4 text-xl font-bold text-gray-400">
+        <div class="w-full max-w-sm rounded-lg  bg-transparent/30 p-8 shadow-lg  backdrop-blur-md">
+            <h1 class="mb-6 text-center text-2xl font-bold text-white">
                 Login
             </h1>
-            <div class="flex justify-center">
-                <!-- <lion-icon :icon-id="resolvedIcon" aria-label="Bug Icon"></lion-icon> -->
+            <div class="mb-6 flex justify-center">
+                <div class="flex size-16 items-center justify-center rounded-full bg-gray-200">
+                    <UIcon name="i-heroicons-user" class="size-12 text-gray-600" />
+                </div>
             </div>
             <lion-input-email
                 v-model="email"
                 type="email"
                 placeholder="Email"
                 :validators="emailValidators"
-                class="mb-2 w-full"
+                class="mb-4 w-full rounded shadow-inner"
             >
             </lion-input-email>
-
-            <lion-input
-                v-model="password"
-                type="password"
-                placeholder="Password"
-                class="mb-2 w-full"
-            />
-
+            <div class="relative mb-4 w-full">
+                <lion-input
+                    v-model="password"
+                    :type="isPasswordVisible ? 'text' : 'password'"
+                    placeholder="Password"
+                    class="w-full rounded shadow-inner"
+                />
+                <button
+                    type="button"
+                    class="absolute right-3 top-2 text-gray-500 hover:text-gray-700 focus:outline-none"
+                    @click="togglePasswordVisibility"
+                >
+                    <UIcon :name="isPasswordVisible ? 'i-heroicons-eye-slash' : 'i-heroicons-eye'" />
+                </button>
+            </div>
             <div class="mb-4">
-                <lion-button class="flex w-full justify-center rounded p-2 text-white" style="background-color: rgb(79 41 171)" @click="handleLogin">
+                <lion-button 
+                    class="flex w-full justify-center rounded bg-indigo-600 p-2 text-white transition duration-200 hover:bg-indigo-700"
+                    @click="handleLogin"
+                >
                     Login
                 </lion-button>
-                <p class="mt-2 pl-2 text-sm text-white">
-                    Don't have an account yet? Register
-                </p>
             </div>
-            
-            <p v-if="errorMessage" class="mt-4 text-red-500">
+            <p class="text-center text-sm text-white">
+                Don't have an account yet? 
+                <a href="/register" class="text-indigo-300 hover:underline">Register</a>
+            </p>
+            <p v-if="errorMessage" class="mt-4 text-center text-sm italic text-red-400">
                 {{ errorMessage }}
             </p>
         </div>
@@ -92,7 +101,7 @@ lion-input-email .form-control {
 }
 
 lion-validation-feedback {
-    color: red;
+    color: rgb(236, 89, 89);
     font-size: 13px;
     padding-left: 5px;
     font-style: italic;
