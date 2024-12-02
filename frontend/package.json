@@ -1,13 +1,15 @@
 {
+  "homepage": "https://mariamalfarra.github.io/AppDemo/frontend",
   "name": "frontend",
   "private": true,
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "predev": "eslint --fix ."
+  "build": "nuxt build",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d .output/public",
+  "dev": "nuxt dev",
+  "generate": "nuxt generate",
+  "preview": "nuxt preview",
+  "postinstall": "nuxt prepare"
   },
   "dependencies": {
     "@heroicons/vue": "^2.2.0",
@@ -35,6 +37,7 @@
     "eslint-plugin-tailwindcss": "^3.17.5",
     "eslint-plugin-vue": "^8.7.1",
     "eslint-plugin-vuejs-accessibility": "^2.4.1",
+    "gh-pages": "^6.2.0",
     "globals": "^15.12.0",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.15",
