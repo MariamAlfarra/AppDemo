@@ -26,9 +26,9 @@ const selectTab = (index) => {
                     v-for="(tab, index) in tabs"
                     :key="index"
                     :slot="'tab'"
-                    class="ml-4 flex w-16 flex-col items-center justify-center rounded-md border border-gray-400 p-2 text-sm text-gray-700 hover:bg-slate-200"
+                    class="ml-4 flex w-16 flex-col items-center justify-center rounded-md border border-gray-400 p-2 text-sm text-gray-700 hover:bg-orange-600/20"
                     :class="{
-                        'bg-gray-300': modelValue === index, 
+                        'bg-orange-400/20': modelValue === index, 
                         'text-blue-500': modelValue === index 
                     }"
                     @click="selectTab(index)"
@@ -38,6 +38,9 @@ const selectTab = (index) => {
                         <span class="text-center text-xs">{{ tab.title }}</span>
                     </div> 
                 </lion-button>
+                <p v-for="(tab, index) in tabs"
+                   :key="index"
+                   :slot="'panel'"></p>
             </lion-tabs>
             <lion-button
                 class="flex w-16 flex-col items-center justify-center rounded-md border border-gray-400 p-2 text-sm text-gray-700 hover:bg-slate-200"
