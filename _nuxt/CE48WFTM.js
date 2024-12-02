@@ -1,0 +1,1 @@
+import{u as i}from"./D9EzXTaG.js";import{ag as n,a9 as a}from"./Ww-eiaBC.js";const u=n(e=>{const t=i();if(t.checkAuth(),!t.isAuthenticated&&e.path!=="/login")return a("/login");if(t.isAuthenticated&&e.path==="/login")return a("/")});export{u as default};
