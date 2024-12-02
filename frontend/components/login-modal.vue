@@ -31,7 +31,7 @@ const togglePasswordVisibility = () => {
 };
 </script>
 <template>
-    <div class="flex h-screen w-screen items-center justify-center bg-gradient-to-r from-violet-500 to-fuchsia-500">
+    <div class="flex h-screen w-screen items-center justify-center  bg-gradient-to-r from-pink-500/80 to-orange-500/80">
         <div class="w-full max-w-sm rounded-lg  bg-transparent/30 p-8 shadow-lg  backdrop-blur-md">
             <h1 class="mb-6 text-center text-2xl font-bold text-white">
                 Login
@@ -61,7 +61,7 @@ const togglePasswordVisibility = () => {
                     class="absolute right-3 top-2 text-gray-500 hover:text-gray-700 focus:outline-none"
                     @click="togglePasswordVisibility"
                 >
-                    <UIcon :name="isPasswordVisible ? 'i-heroicons-eye-slash' : 'i-heroicons-eye'" />
+                    <UIcon :name="isPasswordVisible ? 'i-heroicons-eye' : 'i-heroicons-eye-slash'" class="text-gray-200" />
                 </button>
             </div>
             <div class="mb-4">
