@@ -2,20 +2,17 @@
 import { useMainStore } from "~/stores/main";
 const mainStore = useMainStore();
 const {user} = toRefs(mainStore);
+
 const redirectTo = (platform) => {
-    const urls = {
-        facebook: "https://facebook.com",
-        linkedin: "https://linkedin.com",
-        github: "https://github.com"
-    };
-    window.open(urls[platform], "_blank");
+    const url = user.value[platform];
+    if (url) {
+        window.open(url, "_blank");
+    } 
 };
 
 const fullName = ref(`${user.value.firstName} ${user.value.lastName}`);
 const initials = ref("");
 initials.value = `${user.value.firstName[0].toUpperCase()}${user.value.lastName[0].toUpperCase()}`;
-
-
 </script>
 <template>
     <div class="flex h-full items-center justify-center">
@@ -58,41 +55,41 @@ initials.value = `${user.value.firstName[0].toUpperCase()}${user.value.lastName[
                 </div>
 
 
-                <div class="my-8 flex-1 space-y-4 rounded-md border bg-gray-200 p-4 text-left">
-                    <div class="flex items-center justify-between border-b border-gray-300 pb-2">
+                <div class="my-8 space-y-4 rounded-md border bg-gray-200 p-4 text-left">
+                    <div class="flex items-center justify-start border-b border-gray-300 pb-2">
+                        <UIcon name="i-heroicons-device-phone-mobile" class=" pl-8 text-gray-500" />
                         <div>
                             <span class="block text-sm text-gray-500">Phone</span>
                             <p class="truncate text-sm text-gray-800">
                                 {{ user.phone }}
                             </p>
                         </div>
-                        <i class="fas fa-phone text-gray-500"></i>
                     </div>
-                    <div class="flex items-center justify-between border-b border-gray-300 pb-2">
+                    <div class="flex items-center justify-start border-b border-gray-300 pb-2">
+                        <UIcon name="i-heroicons-at-symbol" class="pl-8 text-gray-500" />
                         <div>
                             <span class="block text-sm text-gray-500">Email</span>
                             <p class="truncate text-sm text-gray-800">
                                 {{ user.email }}
                             </p>
                         </div>
-                        <i class="fas fa-envelope text-gray-500"></i>
                     </div>
-                    <div class="flex items-center justify-between border-b border-gray-300 pb-2">
+                    <div class="flex items-center justify-start border-b border-gray-300 pb-2">
+                        <UIcon name="i-heroicons-map-pin" class="pl-8 text-gray-500" />
                         <div>
                             <span class="block text-sm text-gray-500">Location</span>
                             <p class="truncate text-sm text-gray-800">
                                 {{ user.location }}
                             </p>
                         </div>
-                        <i class="fas fa-map-marker-alt text-gray-500"></i>
                     </div>
-                    <div class="flex items-center justify-center pb-2">
+                    <div class="mb-8 flex items-center justify-center pb-2">
                         <div>
-                            <lion-button class="bg-gray-600 text-sm">
+                            <lion-button class="bg-gray-400 text-sm hover:bg-gray-500">
+                                <UIcon name="i-heroicons-arrow-down-tray" class="pl-7 text-white" />
                                 Download Resume
                             </lion-button>
                         </div>
-                        <i class="fas fa-map-marker-alt text-gray-500"></i>
                     </div>
                 </div>
             </div>

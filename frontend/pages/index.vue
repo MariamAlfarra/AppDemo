@@ -5,15 +5,12 @@ definePageMeta({
 
 import { useMainStore } from "~/stores/main";
 const mainStore = useMainStore();
-const router = useRouter();
-const { logout, user } = toRefs(mainStore);
+const { logout, user, activeTab } = toRefs(mainStore);
 
-const activeTab = ref(0);
 const tabs = ref([
-    { title: "Home",content:"", icon: "i-heroicons-home" },
-    { title: "Work", content:"", icon: "i-heroicons-briefcase" },
-    { title: "Reviews", content:"", icon: "i-heroicons-star" },
-    { title: "Logout", content:"", icon: "i-heroicons-logout" }
+    { title: "Home",content:"About Me", icon: "i-heroicons-home" },
+    { title: "Work", content:"Relevant Work ", icon: "i-heroicons-briefcase" },
+    { title: "Reviews", content:"Given reviews", icon: "i-heroicons-star" }
 ]);
 
 </script>
@@ -23,13 +20,11 @@ const tabs = ref([
             <left-card></left-card>
             <div class="flex flex-1 flex-col space-y-4">
                 <app-tabs v-model="activeTab" :tabs="tabs"></app-tabs>
-                <right-card :active-tab="activeTab" :tabs="tabs" class="flex-[1.5]"></right-card>
+                <right-card :tabs="tabs" class="flex-[1.5]"></right-card>
             </div>
+            <logout-modal>
+            </logout-modal>
         </div>
         <app-footer></app-footer>
-        <!-- <h1>Welcome to the Home Page {{ user?.name }}</h1>
-        <lion-button @click="logout(router)">
-            Logout
-        </lion-button> -->
     </div>
 </template>
