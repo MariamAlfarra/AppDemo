@@ -17,7 +17,7 @@ initials.value = `${user.value?.firstName[0].toUpperCase()}${user.value?.lastNam
 const downloadResume = () => {
     const link = document.createElement("a");
     const fileName = `${user.value?.firstName}-${user.value?.lastName}-cv.pdf`; 
-    link.href = `/files/${user.value?.cvName}`; 
+    link.href = `files/${user.value?.cvName}`; 
     link.download = fileName; 
     link.click(); 
 };

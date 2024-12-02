@@ -76,7 +76,7 @@ const togglePasswordVisibility = () => {
                 Don't have an account yet? 
                 <a href="/register" class="text-indigo-300 hover:underline">Register</a>
             </p>
-            <p v-if="errorMessage" class="mt-4 text-center text-sm italic text-red-400">
+            <p v-if="errorMessage" class="mt-4 text-center text-sm italic text-gray-800">
                 {{ errorMessage }}
             </p>
         </div>
@@ -101,7 +101,7 @@ lion-input-email .form-control {
 }
 
 lion-validation-feedback {
-    color: rgb(236, 89, 89);
+    color: rgb(0, 0, 0);
     font-size: 13px;
     padding-left: 5px;
     font-style: italic;
