@@ -1,15 +1,12 @@
-# fly.toml app configuration file generated for appdemo-fuiizw on 2024-12-02T18:09:56Z
+# fly.toml app configuration file generated for cv-project-demo on 2025-02-18T21:06:16Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'appdemo-fuiizw'
+app = 'cv-project-demo'
 primary_region = 'arn'
 
 [build]
-
-[env]
-  PORT = '8080'
 
 [http_service]
   internal_port = 8080
