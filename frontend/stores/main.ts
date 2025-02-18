@@ -1,58 +1,62 @@
 import { defineStore } from "pinia";
-import users from "~/public/users.json";
+import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import {pageInit} from "~/composables/useData";
 import type { User } from "~/types/user";
-
 export const useMainStore = defineStore("main", {
-    state: ()=> ({
-        isAuthenticated:false,
-        user: null as User | null,
-        userData: [],
+    state: () => ({
+        isAuthenticated: false,
+        loading: false,
+        user: null as User| null,
         activeTab: 0,
-        isModalVisible: false
+        isModalVisible: false,
+        leftSideModal: false
     }),
+
     actions: {
-        login(email: string, password: string) {
-            const user = users.find(
-                (u) => u.email === email && u.password === password
-            );
-            if (user) {
-                this.isAuthenticated = true;
-                this.user = user;
-                localStorage.setItem("auth", JSON.stringify(this.user?.id));
-                return true;
-            }
-            return false;
-        },
-
-        logout(router: string[]) {
-            router.push("/login");
-            this.isAuthenticated = false;
-            this.user = null;
-            localStorage.removeItem("auth");
-            this.isModalVisible=false;
-            this.activeTab = 0;
-            
-        },
-
-        checkAuth() {
-            const auth = localStorage.getItem("auth");
+        async loginUser(email: string, password: string) {
+            this.loading = true;
+            const auth = getAuth();
+        
             try {
-                if (auth) {
-                    const user_id = JSON.parse(auth);
-                    const user = users.find(
-                        (u) => u.id === user_id
-                    );
-                    if (user) { 
-                        this.isAuthenticated = true;
-                        this.user = user;
-                    }
-                }
-            } catch (error) { 
-                this.isAuthenticated = false;
-                this.user = null;
-                localStorage.removeItem("auth");
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                this.isAuthenticated = true;
+
+                const token = useCookie("token");
+                token.value = await userCredential.user.getIdToken();
+                this.user = await pageInit(); 
+
+                return userCredential; 
+            } catch (error) {
+                console.error("Login Error:", error);
+                useToast().add({
+                    title: "Error Logging In",
+                    timeout: 5000,
+                    icon: "i-heroicons-exclamation-circle",
+                    color: "red"
+                });
+                throw error; 
+            } finally {
+                this.loading = false;
             }
         },
+        
+        async logoutUser() {
+            const auth = getAuth();
+            try {
+                await signOut(auth);
+                navigateTo("/login");
+                
+            } catch (error) {
+                console.error("Logout Error:", error);
+            }finally{
+                this.user = null;
+                this.isAuthenticated = false;
+                const token = useCookie("token");
+                token.value = null;
+                this.activeTab=0;
+            }
+        },
+
         setActiveTab(index: number) {
             this.activeTab = index;
         }

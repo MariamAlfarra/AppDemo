@@ -1,7 +1,6 @@
 export interface User {
+  uid: string;
   id: string;
-  email: string;
-  password: string;
   firstName?: string;
   lastName?: string;
   role: string;
@@ -14,6 +13,7 @@ export interface User {
   homeCards: Card[];
   workCards: Work[];
   reviewCard: string[];
+  token:string;
 }
 
 export interface Card {
@@ -22,7 +22,7 @@ export interface Card {
   icon?: string;
 }
 export interface Work {
-  title: string;
+  label: string;
   description: string;
   contributions: {
     frontend: string;

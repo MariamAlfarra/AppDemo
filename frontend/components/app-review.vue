@@ -12,7 +12,7 @@ const items = computed(() => user.value?.reviewCard);
                    class="overflow-hidden rounded-lg"
                    arrows>
             <img :src="item"
-                 class="mx-auto w-full max-w-[428px]"
+                 class="mx-auto w-full max-w-[500px]"
                  alt="images"
                  draggable="false">
         </UCarousel>
