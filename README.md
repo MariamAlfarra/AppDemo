@@ -27,7 +27,7 @@ Make sure to install the required dependencies before running the project.
 cd frontend 
 npm install
 ```
-
+Make sure you create a .env file , and the data from the .env.example file
 
 ## Dev server
 Run the following command to start the dev server on http://localhost:3000

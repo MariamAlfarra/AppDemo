@@ -25,13 +25,13 @@ export default defineNuxtConfig({
             sessionCookie: false
         },
         config: {
-            apiKey: "AIzaSyCRZB-0r7NIla2X8LWRAxzEQB6zRUKLgEs",
-            authDomain: "cv-project-84361.firebaseapp.com",
-            projectId: "cv-project-84361",
-            storageBucket: "cv-project-84361.firebasestorage.app",
-            messagingSenderId: "6512836811",
-            appId: "1:6512836811:web:ccf898ae7ac5737561db4e",
-            measurementId: "G-JE0H5M19E0"
+            apiKey: process.env.NUXT_FIREBASE_API_KEY,
+            authDomain: process.env.NUXT_FIREBASE_AUTH_DOMAIN,
+            projectId: process.env.NUXT_FIREBASE_PROJECT_ID,
+            storageBucket: process.env.NUXT_FIREBASE_STORAGE_BUCKET,
+            messagingSenderId: process.env.NUXT_FIREBASE_MESSAGING_SENDER_ID,
+            appId: process.env.NUXT_FIREBASE_APP_ID,
+            measurementId: process.env.NUXT_FIREBASE_MEASUREMENT_ID
         }
     }
 });
