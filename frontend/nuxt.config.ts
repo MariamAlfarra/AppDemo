@@ -1,7 +1,7 @@
 import { defineNuxtConfig } from "nuxt/config";
 export default defineNuxtConfig({
     app: {
-        baseURL: "/AppDemo/"
+        baseURL: "/"
     },
     ssr: false,
     compatibilityDate: "2024-11-01",
