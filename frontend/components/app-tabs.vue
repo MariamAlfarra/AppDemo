@@ -31,7 +31,7 @@ const showLeftCardModal =( ) => {
                     v-for="(tab) in props.tabs"
                     :key="tab.key"
                     color="gray"
-                    class="flex w-16 flex-col items-center border-b-4 border-transparent bg-gray-800 p-2 transition-all duration-300 hover:bg-gray-500 dark:hover:bg-gray-500"
+                    class="flex w-16 flex-col items-center border-b-4 border-white bg-gray-800 p-2 transition-all duration-300 hover:bg-gray-500 dark:hover:bg-gray-500"
                     :class="activeTab === tab.key ? 'border-primary-500 text-white' : 'dark:text-gray-400 text-gray-400'"
                     @click="selectTab(tab.key)"
                 >
@@ -43,7 +43,7 @@ const showLeftCardModal =( ) => {
             <UButton
                 size="sm"
                 color="gray"
-                class="flex w-16 flex-col items-center justify-center rounded-md border-b-4 border-transparent bg-gray-800 p-2 text-sm text-gray-400 hover:bg-gray-600"
+                class="flex w-16 flex-col items-center justify-center rounded-md border-b-4 border-white bg-gray-800 p-2 text-sm text-gray-400 hover:bg-gray-600"
                 @click="isModalVisible = true"
             >
                 <div class="flex flex-col items-center">
