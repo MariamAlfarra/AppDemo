@@ -145,18 +145,18 @@ watch(activeTab, (newTab) => {
 </template>
 <style scoped>
 ::v-deep(button[role="tab"]) {
-  @apply text-gray-600 dark:bg-green-400 ;
+  @apply text-gray-600 dark:bg-green-400 bg-green-400;
 }
 
 ::v-deep([role="tablist"]) {
-  @apply  dark:bg-green-400;
+  @apply  dark:bg-green-400 bg-green-400;
 }
 
 ::v-deep(button[role="tab"][aria-selected="true"]) {
-  @apply text-white dark:bg-green-600; 
+  @apply text-white dark:bg-green-600 bg-green-600; 
 }
 
 ::v-deep(button[role="tab"][aria-selected="false"]) {
-  @apply  dark:bg-green-400 dark:text-gray-600; 
+  @apply  dark:bg-green-400 bg-green-400 text-gray-600 dark:text-gray-600; 
 }
 </style>

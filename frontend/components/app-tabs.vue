@@ -31,24 +31,25 @@ const showLeftCardModal =( ) => {
                     v-for="(tab) in props.tabs"
                     :key="tab.key"
                     color="gray"
-                    class="flex w-16 flex-col items-center p-2 transition-all duration-300"
-                    :class="activeTab === tab.key ? 'text-primary-500 border-b-2 border-primary-500' : 'text-gray-500'"
+                    class="flex w-16 flex-col items-center border-b-4 border-transparent bg-gray-800 p-2 transition-all duration-300 hover:bg-gray-500 dark:hover:bg-gray-500"
+                    :class="activeTab === tab.key ? 'border-primary-500 text-white' : 'dark:text-gray-400 text-gray-400'"
                     @click="selectTab(tab.key)"
                 >
                     <UIcon :name="tab.icon" class="size-3" />
                     <span class="text-xs">{{ tab.title }}</span>
                 </UButton>
             </div>
+
             <UButton
                 size="sm"
                 color="gray"
-                class="flex w-16 flex-col items-center justify-center rounded-md p-2 text-sm "
+                class="flex w-16 flex-col items-center justify-center rounded-md border-b-4 border-transparent bg-gray-800 p-2 text-sm text-gray-400 hover:bg-gray-600"
                 @click="isModalVisible = true"
             >
                 <div class="flex flex-col items-center">
                     <UIcon
                         name="i-heroicons-arrow-right-start-on-rectangle"
-                        class="size-3 text-gray-500"
+                        class="size-3 text-gray-400"
                     />
                     <span class="text-center text-xs">Logout</span>
                 </div>

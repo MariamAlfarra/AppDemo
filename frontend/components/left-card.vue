@@ -206,7 +206,7 @@ const downloadResume = () => {
                         <div>
                             <UButton variant="solid"
                                      color="gray"
-                                 
+                                     class="bg-gray-700 text-white hover:bg-gray-600"
                                      @click="downloadResume">
                                 <UIcon name="i-heroicons-arrow-down-tray" class="pl-7 text-white" />
                                 Download Resume

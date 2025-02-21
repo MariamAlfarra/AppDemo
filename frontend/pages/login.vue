@@ -59,14 +59,16 @@ async function onSubmit() {
                        :state="state"
                        class="space-y-4"
                        @submit="onSubmit">
-                    <UFormGroup label="Email" name="email">
+                    <UFormGroup name="email">
+                        <span class="text-sm text-white">Email</span>
                         <UInput v-model="state.email"
                                 type="email"
                                 placeholder="Email"
                                 class="w-full rounded shadow-inner" />
                     </UFormGroup>
 
-                    <UFormGroup label="Password" name="password">
+                    <UFormGroup name="password">
+                        <span class="text-sm text-white">Password</span>
                         <div class="relative w-full">
                             <UInput v-model="state.password"
                                     :type="isPasswordVisible ? 'text' : 'password'"
@@ -78,7 +80,7 @@ async function onSubmit() {
                         </div>
                     </UFormGroup>
 
-                    <UButton type="submit" class="flex w-full justify-center rounded bg-indigo-600 p-2 text-white transition duration-200 hover:bg-indigo-700">
+                    <UButton type="submit" class="flex w-full justify-center rounded bg-green-600 p-2 text-white transition duration-200 hover:bg-green-700">
                         Login
                     </UButton>
                 </UForm>
