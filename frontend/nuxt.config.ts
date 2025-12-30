@@ -1,7 +1,12 @@
 import { defineNuxtConfig } from "nuxt/config";
 export default defineNuxtConfig({
     app: {
-        baseURL: "/"
+        baseURL: "/",
+        head: {
+            htmlAttrs: {
+                lang: "en"
+            }
+        }
     },
     ssr: false,
     compatibilityDate: "2024-11-01",

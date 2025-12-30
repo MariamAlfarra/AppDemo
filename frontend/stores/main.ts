@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import {pageInit} from "~/composables/useData";
 import type { User } from "~/types/user";
 export const useMainStore = defineStore("main", {
@@ -29,7 +29,7 @@ export const useMainStore = defineStore("main", {
             } catch (error) {
                 console.error("Login Error:", error);
                 useToast().add({
-                    title: "Error Logging In",
+                    title: "Invalid Credentials",
                     timeout: 5000,
                     icon: "i-heroicons-exclamation-circle",
                     color: "red"

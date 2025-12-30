@@ -1,6 +1,10 @@
 <script setup>
 import {pageInit} from "~/composables/useData";
 const mainStore = useMainStore();
+
+useHead({
+    title: "Main Page"
+});
 const { activeTab, user, loading} = toRefs(mainStore);
 const tabs = ref([
     { title: "Home", icon: "i-heroicons-home", key:0 },
@@ -31,7 +35,7 @@ onMounted(async () => {
                 <right-card :tabs="tabs" class="w-full" />
             </div>
         </div>
-        <logout-modal />
+        <lazy-logout-modal />
     </div>
 </template>
 
