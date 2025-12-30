@@ -92,7 +92,7 @@ const downloadResume = () => {
                         <div class="flex items-center justify-start border-b border-gray-300 pb-2">
                             <UIcon name="i-heroicons-device-phone-mobile" class=" pl-8 text-green-500" />
                             <div>
-                                <span class="block text-sm text-gray-500">Phone</span>
+                                <span class="block text-sm text-gray-600">Phone</span>
                                 <p class="truncate text-sm text-gray-800">
                                     {{ user?.phone }}
                                 </p>
@@ -101,7 +101,7 @@ const downloadResume = () => {
                         <div class="flex items-center justify-start border-b border-gray-300 pb-2">
                             <UIcon name="i-heroicons-at-symbol" class="pl-8 text-green-500" />
                             <div>
-                                <span class="block text-sm text-gray-500">Email</span>
+                                <span class="block text-sm text-gray-600">Email</span>
                                 <p class="truncate text-sm text-gray-800">
                                     {{ user?.email }}
                                 </p>
@@ -110,7 +110,7 @@ const downloadResume = () => {
                         <div class="flex items-center justify-start border-b border-gray-300 pb-2">
                             <UIcon name="i-heroicons-map-pin" class="pl-8 text-green-500" />
                             <div>
-                                <span class="block text-sm text-gray-500">Location</span>
+                                <span class="block text-sm text-gray-600">Location</span>
                                 <p class="truncate text-sm text-gray-800">
                                     {{ user?.location }}
                                 </p>
@@ -133,8 +133,9 @@ const downloadResume = () => {
 
         <div class="relative flex size-full max-w-sm flex-col rounded-lg bg-white p-8 text-center shadow-lg transition-opacity duration-200 ease-in-out sm:block">
             <div 
-                class="absolute -top-10 left-1/2 flex size-32 -translate-x-1/2 items-center justify-center bg-green-400/75 text-2xl font-bold text-white shadow-lg"
-                title="User Initials">
+                class="absolute -top-10 left-1/2 flex size-32 -translate-x-1/2 items-center justify-center bg-green-700/80 text-2xl font-bold text-white shadow-lg"
+                title="User Initials"
+            >
                 {{ initials }}
             </div>
             <div class="mt-8 flex flex-1 flex-col pt-8">

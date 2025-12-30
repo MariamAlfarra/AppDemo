@@ -38,7 +38,10 @@ watch(activeTab, (newTab) => {
                             </h2>
                             <div class="ml-4 h-px w-32 bg-gray-300"></div>
                         </div>
-                        <div class="max-h-[500px] rounded-lg border border-gray-200 bg-gray-50 p-6 shadow-md md:overflow-y-auto lg:max-h-[550px] xl:max-h-[600px]">
+                        <div class="max-h-[500px] overflow-y-auto rounded-lg border border-gray-200 bg-gray-50 p-6 shadow-md lg:max-h-[550px] xl:max-h-[600px]"
+                             tabindex="0"
+                             role="region"
+                             aria-label="About me details">
                             <p class="leading-relaxed text-gray-600">
                                 {{ user?.description }}
                             </p>
@@ -80,11 +83,26 @@ watch(activeTab, (newTab) => {
                             </h2>
                             <div class="ml-4 h-px w-32 bg-gray-300"></div>
                         </div>
-                        <UTabs :items="user.workCards" class="w-full rounded-lg p-2">
+                        <UTabs :items="user.workCards"
+                               class="w-full rounded-lg p-2"
+                               :ui="{
+                                   wrapper: 'space-y-2',
+                                   container: '',
+                                   list: {
+                                       background: 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700',
+                                       padding: 'p-1',
+                                       rounded: 'rounded-lg',
+                                       tab: {
+                                           base: 'px-4 py-2 font-medium transition-all duration-200 rounded-md',
+                                           active: 'bg-green-700 text-white shadow-sm',
+                                           inactive: 'bg-transparent text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700'
+                                       }
+                                   }
+                               }">
                             <template #item="{ item }">
                                 <UCard class="dark:ring-bg-100 p-4 text-gray-800 shadow-lg dark:bg-gray-100">
                                     <template #header>
-                                        <p class="text-gray-500">
+                                        <p class="text-gray-600">
                                             {{ item.description }}
                                         </p>
                                         <div class="mt-4">
@@ -143,20 +161,3 @@ watch(activeTab, (newTab) => {
         </div>
     </div>
 </template>
-<style scoped>
-::v-deep(button[role="tab"]) {
-  @apply text-gray-600 dark:bg-green-400 bg-green-400;
-}
-
-::v-deep([role="tablist"]) {
-  @apply  dark:bg-green-400 bg-green-400;
-}
-
-::v-deep(button[role="tab"][aria-selected="true"]) {
-  @apply text-white dark:bg-green-600 bg-green-600; 
-}
-
-::v-deep(button[role="tab"][aria-selected="false"]) {
-  @apply  dark:bg-green-400 bg-green-400 text-gray-600 dark:text-gray-600; 
-}
-</style>

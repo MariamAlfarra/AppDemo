@@ -30,10 +30,10 @@ const logout = () => {
 
                 <div class="flex justify-center gap-4">
                     <UButton
-                        class="rounded-md px-6 py-2 text-white dark:bg-green-600"
+                        class="rounded-md px-6 py-2 dark:bg-green-700 dark:ring-green-700 dark:hover:bg-green-800"
                         @click="logout"
                     >
-                        <span class="text-gray-200">Yes, Log Out</span>
+                        <span class="font-medium text-white">Yes, Log Out</span>
                     </UButton>
                     <UButton 
                         variant="solid"

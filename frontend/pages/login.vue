@@ -3,7 +3,9 @@ import { useMainStore } from "~/stores/main";
 const mainStore = useMainStore();
 const router = useRouter();
 const { isAuthenticated } = toRefs(mainStore);
-
+useHead({
+    title: "Login"
+});
 const state = reactive({
     email: "",
     password: ""
@@ -75,20 +77,45 @@ async function onSubmit() {
                                     placeholder="Password"
                                     class="w-full rounded shadow-inner" 
                                     :input-attrs="{autocomplete: 'current-password'}" />
-                            <button type="button" class="absolute right-3 top-2 text-gray-500 hover:text-gray-700 focus:outline-none" @click="togglePasswordVisibility">
-                                <UIcon :name="isPasswordVisible ? 'i-heroicons-eye' : 'i-heroicons-eye-slash'" class="text-gray-200" />
+                            <button
+                                type="button"
+                                class="absolute right-3 top-2 text-gray-500 hover:text-gray-700 focus:outline-none"
+                                :aria-label="isPasswordVisible ? 'Hide password' : 'Show password'"
+                                :title="isPasswordVisible ? 'Hide password' : 'Show password'"
+                                :aria-pressed="isPasswordVisible"
+                                @click="togglePasswordVisibility"
+                            >
+                                <UIcon
+                                    :name="isPasswordVisible ? 'i-heroicons-eye' : 'i-heroicons-eye-slash'"
+                                    aria-hidden="true"
+                                    class="text-gray-200"
+                                />
                             </button>
                         </div>
                     </UFormGroup>
 
-                    <UButton type="submit" class="flex w-full justify-center rounded bg-green-600 p-2 text-white transition duration-200 hover:bg-green-700">
+                    <UButton
+                        type="submit"
+                        class="flex w-full justify-center rounded bg-green-700 px-4 py-2 transition
+         hover:bg-green-800 focus:outline-none
+         focus:ring-2 focus:ring-green-500
+         disabled:cursor-not-allowed disabled:bg-green-700
+         disabled:opacity-60 aria-disabled:bg-green-700
+         dark:bg-green-700 dark:text-white
+         dark:hover:bg-green-800 dark:focus:ring-green-400 dark:disabled:bg-green-700 dark:aria-disabled:bg-green-700"
+                    >
                         Login
                     </UButton>
                 </UForm>
 
                 <p class="mt-2 text-center text-sm text-white">
                     Don't have an account yet?
-                    <a href="/register" class="text-indigo-300 hover:underline">Register</a>
+                    <a
+                        href="/register"
+                        class="ml-1 text-blue-400 underline underline-offset-2 hover:text-blue-300 hover:no-underline focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    >
+                        Register
+                    </a>
                 </p>
             </div>
         </div>
