@@ -11,17 +11,11 @@ export default defineNuxtConfig({
     ssr: false,
     compatibilityDate: "2024-11-01",
     devtools: { enabled: true },
-    modules: ["@pinia/nuxt", "@nuxt/ui", "nuxt-vuefire", "@nuxtjs/eslint-module"],
-    css: ["@/assets/css/tailwind.css"],
-    postcss: {
-        plugins: {
-            tailwindcss: {},
-            autoprefixer: {}
-        }
-    },
-    runtimeConfig: {
-        public: {
-            firebase: {
+    modules: ["@pinia/nuxt", "@nuxt/ui", [
+        "nuxt-vuefire",
+        {
+            auth: { enabled: true, sessionCookie: false },
+            config: {
                 apiKey: "AIzaSyCRZB-0r7NIla2X8LWRAxzEQB6zRUKLgEs",
                 authDomain: "cv-project-84361.firebaseapp.com",
                 projectId: "cv-project-84361",
@@ -32,12 +26,12 @@ export default defineNuxtConfig({
                 databaseURL: "https://cv-project-84361-default-rtdb.firebaseio.com"
             }
         }
-    },
-    vuefire: {
-        auth: {
-            enabled: true,
-            sessionCookie: false
-        },
-        config: (runtimeConfig: { public: { firebase: any; }; }) => runtimeConfig.public.firebase
+    ], "@nuxtjs/eslint-module"],
+    css: ["@/assets/css/tailwind.css"],
+    postcss: {
+        plugins: {
+            tailwindcss: {},
+            autoprefixer: {}
+        }
     }
 });
