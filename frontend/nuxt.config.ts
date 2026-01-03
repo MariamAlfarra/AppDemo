@@ -12,11 +12,6 @@ export default defineNuxtConfig({
     compatibilityDate: "2024-11-01",
     devtools: { enabled: true },
     modules: ["@pinia/nuxt", "@nuxt/ui", "nuxt-vuefire", "@nuxtjs/eslint-module"],
-    runtimeConfig: {
-        public: {
-            users: process.env.USERS
-        }
-    },
     css: ["@/assets/css/tailwind.css"],
     postcss: {
         plugins: {
