@@ -19,20 +19,25 @@ export default defineNuxtConfig({
             autoprefixer: {}
         }
     },
+    runtimeConfig: {
+        public: {
+            firebase: {
+                apiKey: "AIzaSyCRZB-0r7NIla2X8LWRAxzEQB6zRUKLgEs",
+                authDomain: "cv-project-84361.firebaseapp.com",
+                projectId: "cv-project-84361",
+                storageBucket: "cv-project-84361.firebasestorage.app",
+                messagingSenderId: "6512836811",
+                appId: "1:6512836811:web:ccf898ae7ac5737561db4e",
+                measurementId: "G-JE0H5M19E0",
+                databaseURL: "https://cv-project-84361-default-rtdb.firebaseio.com"
+            }
+        }
+    },
     vuefire: {
         auth: {
             enabled: true,
             sessionCookie: false
         },
-        config: {
-            apiKey: process.env.NUXT_PUBLIC_FIREBASE_API_KEY,
-            authDomain: process.env.NUXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-            projectId: process.env.NUXT_PUBLIC_FIREBASE_PROJECT_ID,
-            storageBucket: process.env.NUXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-            messagingSenderId: process.env.NUXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-            appId: process.env.NUXT_PUBLIC_FIREBASE_APP_ID,
-            measurementId: process.env.NUXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
-            databaseURL: process.env.NUXT_PUBLIC_FIREBASE_DATABASE_URL
-        }
+        config: (runtimeConfig: { public: { firebase: any; }; }) => runtimeConfig.public.firebase
     }
 });
