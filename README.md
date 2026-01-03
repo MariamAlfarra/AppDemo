@@ -27,7 +27,7 @@ Make sure to install the required dependencies before running the project.
 cd frontend 
 npm install
 ```
-Make sure you create a .env file , and the data from the .env.example file
+Make sure you create a .env file , and the data from the .env.example file ( not needed anymore)
 
 ## Dev server
 Run the following command to start the dev server on http://localhost:3000
@@ -40,8 +40,8 @@ npm run dev
 ## 🔑 Login Credentials
 To test the authentication system, you can log in with:
 
-**Email: mariam_alfarra@hotmail.com**
-**Password: test12345**
+**Email: mariam_user@hotmail.com**
+**Password: Test1234!**
 
 
 ## 📌 Features
